@@ -1,0 +1,759 @@
+ADD TABLE "facility"
+  AREA "Data Area"
+  DUMP-NAME "facility"
+
+ADD FIELD "facility_id" OF "facility" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 2
+  MAX-WIDTH 20
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "facility_type_id" OF "facility" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 3
+  MAX-WIDTH 20
+  ORDER 20
+
+ADD FIELD "owner_party_id" OF "facility" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 5
+  MAX-WIDTH 20
+  ORDER 40
+
+ADD FIELD "facility_name" OF "facility" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 7
+  MAX-WIDTH 100
+  ORDER 60
+
+ADD FIELD "description" OF "facility" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 16
+  MAX-WIDTH 255
+  ORDER 150
+
+ADD FIELD "last_updated_stamp" OF "facility" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 20
+  MAX-WIDTH 8
+  ORDER 190
+
+ADD FIELD "created_stamp" OF "facility" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 22
+  MAX-WIDTH 8
+  ORDER 210
+
+ADD INDEX "sys_001_000000204" ON "facility" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "facility_id" ASCENDING 
+
+ADD INDEX "skw_name" ON "facility" 
+  AREA "Data Area"
+  WORD
+  INDEX-FIELD "facility_name" ASCENDING 
+
+ADD INDEX "sk_name" ON "facility" 
+  AREA "Data Area"
+  INDEX-FIELD "facility_name" ASCENDING 
+
+ADD TABLE "party"
+  AREA "Data Area"
+  DUMP-NAME "party"
+
+ADD FIELD "party_id" OF "party" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 2
+  MAX-WIDTH 39
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "party_type_id" OF "party" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 3
+  MAX-WIDTH 29
+  ORDER 20
+  MANDATORY
+
+ADD FIELD "status_id" OF "party" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 7
+  MAX-WIDTH 72
+  ORDER 60
+
+ADD FIELD "last_modified_date" OF "party" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL "?"
+  POSITION 10
+  MAX-WIDTH 12
+  ORDER 90
+
+ADD FIELD "last_updated_stamp" OF "party" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL "?"
+  POSITION 14
+  MAX-WIDTH 12
+  ORDER 130
+
+ADD FIELD "created_stamp" OF "party" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL "?"
+  POSITION 16
+  MAX-WIDTH 12
+  ORDER 150
+
+ADD FIELD "Name" OF "party" AS character 
+  FORMAT "x(50)"
+  INITIAL ""
+  POSITION 18
+  MAX-WIDTH 100
+  ORDER 170
+
+ADD FIELD "FirstName" OF "party" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 19
+  MAX-WIDTH 161
+  ORDER 180
+
+ADD FIELD "LastName" OF "party" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 20
+  MAX-WIDTH 64
+  ORDER 190
+
+ADD FIELD "description" OF "party" AS character 
+  FORMAT "x(255)"
+  INITIAL ""
+  POSITION 21
+  MAX-WIDTH 510
+  ORDER 50
+
+ADD INDEX "Primary" ON "party" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "party_id" ASCENDING 
+
+ADD INDEX "sk_createdStamp" ON "party" 
+  AREA "Data Area"
+  INDEX-FIELD "created_stamp" ASCENDING 
+
+ADD INDEX "sk_LastModified" ON "party" 
+  AREA "Index Area"
+  INDEX-FIELD "last_modified_date" ASCENDING 
+
+ADD INDEX "sk_LastUpdate" ON "party" 
+  AREA "Index Area"
+  INDEX-FIELD "last_updated_stamp" ASCENDING 
+
+ADD TABLE "party_relationship"
+  AREA "Data Area"
+  DUMP-NAME "party_relationship"
+  TABLE-TRIGGER "REPLICATION-DELETE" OVERRIDE PROCEDURE "com\mrg\mdm\interface\trig\party_relationship_repd.p" CRC "?" 
+
+ADD FIELD "party_id_from" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 2
+  MAX-WIDTH 20
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "party_id_to" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 3
+  MAX-WIDTH 20
+  ORDER 20
+  MANDATORY
+
+ADD FIELD "role_type_id_from" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 4
+  MAX-WIDTH 20
+  ORDER 30
+  MANDATORY
+
+ADD FIELD "role_type_id_to" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 5
+  MAX-WIDTH 20
+  ORDER 40
+  MANDATORY
+
+ADD FIELD "from_date" OF "party_relationship" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 6
+  MAX-WIDTH 8
+  ORDER 50
+  MANDATORY
+
+ADD FIELD "thru_date" OF "party_relationship" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 7
+  MAX-WIDTH 8
+  ORDER 60
+
+ADD FIELD "status_id" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 8
+  MAX-WIDTH 20
+  ORDER 70
+
+ADD FIELD "party_relationship_type_id" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 12
+  MAX-WIDTH 20
+  ORDER 110
+
+ADD FIELD "last_updated_stamp" OF "party_relationship" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 16
+  MAX-WIDTH 8
+  ORDER 150
+
+ADD FIELD "created_stamp" OF "party_relationship" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 18
+  MAX-WIDTH 8
+  ORDER 170
+
+ADD FIELD "party_relationship_id" OF "party_relationship" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 20
+  MAX-WIDTH 40
+  ORDER 5
+
+ADD INDEX "primary" ON "party_relationship" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "party_relationship_id" ASCENDING 
+
+ADD INDEX "SK_PartyFrom" ON "party_relationship" 
+  AREA "Index Area"
+  INDEX-FIELD "party_id_from" ASCENDING 
+
+ADD INDEX "SK_PartyTo" ON "party_relationship" 
+  AREA "Index Area"
+  INDEX-FIELD "party_id_to" ASCENDING 
+
+ADD INDEX "sys_001_000000414" ON "party_relationship" 
+  AREA "Index Area"
+  UNIQUE
+  INDEX-FIELD "from_date" ASCENDING 
+  INDEX-FIELD "party_id_from" ASCENDING 
+  INDEX-FIELD "party_id_to" ASCENDING 
+  INDEX-FIELD "role_type_id_from" ASCENDING 
+  INDEX-FIELD "role_type_id_to" ASCENDING 
+
+ADD TABLE "party_role"
+  AREA "Data Area"
+  DUMP-NAME "party_role"
+
+ADD FIELD "party_id" OF "party_role" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 2
+  MAX-WIDTH 20
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "role_type_id" OF "party_role" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 3
+  MAX-WIDTH 20
+  ORDER 20
+  MANDATORY
+
+ADD FIELD "last_updated_stamp" OF "party_role" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 4
+  MAX-WIDTH 8
+  ORDER 30
+
+ADD FIELD "created_stamp" OF "party_role" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 6
+  MAX-WIDTH 8
+  ORDER 50
+
+ADD FIELD "party_role_id" OF "party_role" AS character 
+  FORMAT "x(36)"
+  INITIAL ""
+  POSITION 11
+  MAX-WIDTH 72
+  ORDER 90
+
+ADD INDEX "PK_Party_role" ON "party_role" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "party_role_id" ASCENDING 
+
+ADD INDEX "sys_001_000000417" ON "party_role" 
+  AREA "Index Area"
+  UNIQUE
+  INDEX-FIELD "party_id" ASCENDING 
+  INDEX-FIELD "role_type_id" ASCENDING 
+
+ADD TABLE "security_group"
+  AREA "Data Area"
+  DUMP-NAME "security_group"
+
+ADD FIELD "security_group_id" OF "security_group" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 2
+  MAX-WIDTH 20
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "description" OF "security_group" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 3
+  MAX-WIDTH 255
+  ORDER 20
+
+ADD FIELD "last_updated_stamp" OF "security_group" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 4
+  MAX-WIDTH 8
+  ORDER 30
+
+ADD FIELD "created_stamp" OF "security_group" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 6
+  MAX-WIDTH 8
+  ORDER 50
+
+ADD INDEX "PK_security_group_id" ON "security_group" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "security_group_id" ASCENDING 
+
+ADD INDEX "sk_description" ON "security_group" 
+  AREA "Index Area"
+  INDEX-FIELD "description" ASCENDING 
+
+ADD TABLE "user_login"
+  AREA "Data Area"
+  DUMP-NAME "user_login"
+
+ADD FIELD "user_login_id" OF "user_login" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 2
+  MAX-WIDTH 80
+  ORDER 10
+
+ADD FIELD "current_password" OF "user_login" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 3
+  MAX-WIDTH 80
+  ORDER 20
+
+ADD FIELD "password_hint" OF "user_login" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 4
+  MAX-WIDTH 80
+  ORDER 30
+
+ADD FIELD "enabled" OF "user_login" AS logical 
+  FORMAT "yes/no"
+  INITIAL "no"
+  POSITION 6
+  MAX-WIDTH 1
+  ORDER 50
+
+ADD FIELD "has_logged_out" OF "user_login" AS logical 
+  FORMAT "yes/no"
+  INITIAL "no"
+  POSITION 7
+  MAX-WIDTH 1
+  ORDER 60
+
+ADD FIELD "require_password_change" OF "user_login" AS logical 
+  FORMAT "yes/no"
+  INITIAL "no"
+  POSITION 8
+  MAX-WIDTH 1
+  ORDER 70
+
+ADD FIELD "party_id" OF "user_login" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 14
+  MAX-WIDTH 80
+  ORDER 130
+
+ADD FIELD "last_updated_stamp" OF "user_login" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 16
+  MAX-WIDTH 12
+  ORDER 150
+
+ADD FIELD "created_stamp" OF "user_login" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 18
+  MAX-WIDTH 12
+  ORDER 170
+
+ADD INDEX "PK_user_login_id" ON "user_login" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "user_login_id" ASCENDING 
+
+ADD INDEX "IDX_party_id" ON "user_login" 
+  AREA "Data Area"
+  INDEX-FIELD "party_id" ASCENDING 
+
+ADD TABLE "user_login_history"
+  AREA "Data Area"
+  DUMP-NAME "user_login_history"
+
+ADD FIELD "user_login_id" OF "user_login_history" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 2
+  MAX-WIDTH 80
+  ORDER 10
+
+ADD FIELD "from_date" OF "user_login_history" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 4
+  MAX-WIDTH 12
+  ORDER 30
+
+ADD FIELD "thru_date" OF "user_login_history" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 5
+  MAX-WIDTH 12
+  ORDER 40
+
+ADD FIELD "password_used" OF "user_login_history" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 6
+  MAX-WIDTH 80
+  ORDER 50
+
+ADD FIELD "successful_login" OF "user_login_history" AS logical 
+  FORMAT "yes/no"
+  INITIAL "no"
+  POSITION 7
+  MAX-WIDTH 1
+  ORDER 60
+
+ADD FIELD "party_id" OF "user_login_history" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 8
+  MAX-WIDTH 80
+  ORDER 70
+
+ADD FIELD "last_updated_stamp" OF "user_login_history" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 9
+  MAX-WIDTH 12
+  ORDER 80
+
+ADD FIELD "created_stamp" OF "user_login_history" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 11
+  MAX-WIDTH 12
+  ORDER 100
+
+ADD FIELD "user_login_history_id" OF "user_login_history" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 15
+  MAX-WIDTH 16
+  ORDER 5
+
+ADD INDEX "PK_user_login_history_id" ON "user_login_history" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "user_login_history_id" ASCENDING 
+
+ADD INDEX "sk_from_date" ON "user_login_history" 
+  AREA "Index Area"
+  INDEX-FIELD "from_date" ASCENDING 
+
+ADD INDEX "sk_party_id" ON "user_login_history" 
+  AREA "Index Area"
+  INDEX-FIELD "party_id" ASCENDING 
+
+ADD INDEX "sk_user_login_id" ON "user_login_history" 
+  AREA "Index Area"
+  INDEX-FIELD "user_login_id" ASCENDING 
+
+ADD TABLE "user_login_security_group"
+  AREA "Data Area"
+  DUMP-NAME "user_login_security_group"
+
+ADD FIELD "user_login_id" OF "user_login_security_group" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 2
+  MAX-WIDTH 255
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "group_id" OF "user_login_security_group" AS character 
+  FORMAT "x(40)"
+  INITIAL "?"
+  POSITION 3
+  MAX-WIDTH 20
+  ORDER 20
+  MANDATORY
+
+ADD FIELD "from_date" OF "user_login_security_group" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 4
+  MAX-WIDTH 8
+  ORDER 30
+  MANDATORY
+
+ADD FIELD "thru_date" OF "user_login_security_group" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 5
+  MAX-WIDTH 8
+  ORDER 40
+
+ADD FIELD "last_updated_stamp" OF "user_login_security_group" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 6
+  MAX-WIDTH 8
+  ORDER 50
+
+ADD FIELD "created_stamp" OF "user_login_security_group" AS datetime-tz 
+  FORMAT "99/99/9999 hh:mm:ss.sss"
+  INITIAL "?"
+  POSITION 8
+  MAX-WIDTH 8
+  ORDER 70
+
+ADD FIELD "user_login_security_group_id" OF "user_login_security_group" AS character 
+  FORMAT "x(40)"
+  INITIAL ""
+  POSITION 12
+  MAX-WIDTH 80
+  ORDER 5
+
+ADD INDEX "PK_user_login_security_group_id" ON "user_login_security_group" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "user_login_security_group_id" ASCENDING 
+
+ADD INDEX "sk_from_group_user" ON "user_login_security_group" 
+  AREA "Index Area"
+  UNIQUE
+  INDEX-FIELD "from_date" ASCENDING 
+  INDEX-FIELD "group_id" ASCENDING 
+  INDEX-FIELD "user_login_id" ASCENDING 
+
+ADD TABLE "work_effort"
+  AREA "Data Area"
+  DUMP-NAME "work_effort"
+
+ADD FIELD "work_effort_id" OF "work_effort" AS character 
+  FORMAT "x(8)"
+  INITIAL ""
+  POSITION 2
+  MAX-WIDTH 16
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "work_effort_type_id" OF "work_effort" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 3
+  MAX-WIDTH 60
+  ORDER 20
+
+ADD FIELD "work_effort_purpose_type_id" OF "work_effort" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 4
+  MAX-WIDTH 60
+  ORDER 30
+
+ADD FIELD "percent_complete" OF "work_effort" AS decimal 
+  FORMAT "->>,>>9.99"
+  INITIAL "0"
+  POSITION 5
+  MAX-WIDTH 17
+  DECIMALS 2
+  ORDER 40
+
+ADD FIELD "work_effort_name" OF "work_effort" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 6
+  MAX-WIDTH 60
+  ORDER 50
+
+ADD FIELD "facility_id" OF "work_effort" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 7
+  MAX-WIDTH 60
+  ORDER 60
+
+ADD FIELD "last_updated_stamp" OF "work_effort" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 8
+  MAX-WIDTH 12
+  ORDER 70
+
+ADD FIELD "created_stamp" OF "work_effort" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 9
+  MAX-WIDTH 12
+  ORDER 80
+
+ADD INDEX "PK_work_effort_id" ON "work_effort" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "work_effort_id" ASCENDING 
+
+ADD INDEX "SK_facility_id" ON "work_effort" 
+  AREA "Index Area"
+  INDEX-FIELD "facility_id" ASCENDING 
+
+ADD TABLE "work_effort_party_assignment"
+  AREA "Data Area"
+  DUMP-NAME "work_effort_party_assignment"
+
+ADD FIELD "work_effort_id" OF "work_effort_party_assignment" AS character 
+  FORMAT "x(8)"
+  INITIAL ""
+  POSITION 2
+  MAX-WIDTH 16
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "party_id" OF "work_effort_party_assignment" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 3
+  MAX-WIDTH 60
+  ORDER 20
+  MANDATORY
+
+ADD FIELD "role_type_id" OF "work_effort_party_assignment" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 4
+  MAX-WIDTH 60
+  ORDER 30
+  MANDATORY
+
+ADD FIELD "from_date" OF "work_effort_party_assignment" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 5
+  MAX-WIDTH 12
+  ORDER 40
+
+ADD FIELD "thru_date" OF "work_effort_party_assignment" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 6
+  MAX-WIDTH 12
+  ORDER 50
+
+ADD FIELD "last_updated_stamp" OF "work_effort_party_assignment" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 7
+  MAX-WIDTH 12
+  ORDER 60
+
+ADD FIELD "created_stamp" OF "work_effort_party_assignment" AS datetime-tz 
+  FORMAT "99/99/9999 HH:MM:SS.SSS+HH:MM"
+  INITIAL ?
+  POSITION 8
+  MAX-WIDTH 12
+  ORDER 70
+
+ADD FIELD "status_id" OF "work_effort_party_assignment" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 9
+  MAX-WIDTH 60
+  ORDER 80
+
+ADD FIELD "assigned_by_user_id" OF "work_effort_party_assignment" AS character 
+  FORMAT "x(30)"
+  INITIAL ""
+  POSITION 10
+  MAX-WIDTH 60
+  ORDER 90
+
+ADD INDEX "PK_effort_party_role" ON "work_effort_party_assignment" 
+  AREA "Index Area"
+  UNIQUE
+  PRIMARY
+  INDEX-FIELD "work_effort_id" ASCENDING 
+  INDEX-FIELD "party_id" ASCENDING 
+  INDEX-FIELD "role_type_id" ASCENDING 
+
+ADD INDEX "SK_created_stamp" ON "work_effort_party_assignment" 
+  AREA "Index Area"
+  INDEX-FIELD "created_stamp" ASCENDING 
+
+.
+PSC
+cpstream=ISO8859-1
+.
+0000016566

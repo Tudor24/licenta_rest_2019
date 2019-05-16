@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pidl:description targetNamespace="urn:schemas-progress-com:bpm:appserverbinding:0001" serviceType="wsad:OEAppServerInvoke" xmlns:wsad="urn:schemas-progress-com:bpm:appserverbinding:0001" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pidl="http://www.progress.com/caf/idl1.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:java="http://www.progress.com/adapters/idl1.0/javatype">
+<pidl:types>
+</pidl:types>
+  <pidl:interface name="com.progress.openedge.pdt.bpminterfaces">
+    <pidl:operation name="facility.si.SIFacility..count" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:input messageLabel="filter" req="false" type="java:String">
+    </pidl:input>
+      <pidl:output messageLabel="numRecs" req="false" type="java:Integer">
+    </pidl:output>
+    </pidl:operation>
+    <pidl:operation name="facility.si.SIFacility..CreateFacility" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:input messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:input>
+      <pidl:output messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:output>
+    </pidl:operation>
+    <pidl:operation name="facility.si.SIFacility..DeleteFacility" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:input messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:input>
+      <pidl:output messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:output>
+    </pidl:operation>
+    <pidl:operation name="facility.si.SIFacility..ReadFacility" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:input messageLabel="filter" req="false" type="java:String">
+    </pidl:input>
+      <pidl:output messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:output>
+    </pidl:operation>
+    <pidl:operation name="facility.si.SIFacility..SubmitFacility" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:input messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:input>
+      <pidl:output messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:output>
+    </pidl:operation>
+    <pidl:operation name="facility.si.SIFacility..Test" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:output messageLabel="opcMessage" req="false" type="java:String">
+    </pidl:output>
+    </pidl:operation>
+    <pidl:operation name="facility.si.SIFacility..UpdateFacility" pattern="http://www.progress.com/caf/idl1.0/request-response">
+      <pidl:input messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:input>
+      <pidl:output messageLabel="dsFacility" req="false" type="java:Object">
+    </pidl:output>
+    </pidl:operation>
+  </pidl:interface>
+  <pidl:binding name="com.progress.openedge.pdt.bpmbindings" interface="wsad:com.progress.openedge.pdt.bpminterfaces" type="urn:schemas-progress-com:bpm:appserverbinding:0001">
+<wsad:Operation isPersistent="false" useFullName="false" executionMode="11">
+  <wsad:Name>facility.si.SIFacility</wsad:Name>
+  <wsad:ProcPath/>
+  <wsad:ProPath/>
+  <wsad:ProcExt>cls</wsad:ProcExt>
+  <wsad:ProcDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+    <wsad:Name>facility.si.SIFacility</wsad:Name>
+    <wsad:HelpString></wsad:HelpString>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>count</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="false" IsMappedToSubmit="false">
+        <wsad:Name>count</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="false">
+          <wsad:Name>filter</wsad:Name>
+          <wsad:OrigName>filter</wsad:OrigName>
+          <wsad:Type>1</wsad:Type>
+          <wsad:Mode>1</wsad:Mode>
+        </wsad:Parameter>
+        <wsad:Parameter allowUnknown="true" ordinal="2" writeXmlBeforeImage="false">
+          <wsad:Name>numRecs</wsad:Name>
+          <wsad:OrigName>numRecs</wsad:OrigName>
+          <wsad:Type>4</wsad:Type>
+          <wsad:Mode>2</wsad:Mode>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>CreateFacility</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+        <wsad:Name>CreateFacility</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="true">
+          <wsad:Name>dsFacility</wsad:Name>
+          <wsad:OrigName>dsFacility</wsad:OrigName>
+          <wsad:Type>36</wsad:Type>
+          <wsad:Mode>3</wsad:Mode>
+          <wsad:DataSetMetaData>
+            <wsad:NamespaceUri xsi:nil="true"/>
+            <wsad:DataTable Name="ttFacility" hasBeforeTable="false">
+              <wsad:MetaData>
+                <wsad:FieldName>facility_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_type_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>owner_party_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_name</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>description</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>last_updated_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>created_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+            </wsad:DataTable>
+          </wsad:DataSetMetaData>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>DeleteFacility</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+        <wsad:Name>DeleteFacility</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="true">
+          <wsad:Name>dsFacility</wsad:Name>
+          <wsad:OrigName>dsFacility</wsad:OrigName>
+          <wsad:Type>36</wsad:Type>
+          <wsad:Mode>3</wsad:Mode>
+          <wsad:DataSetMetaData>
+            <wsad:NamespaceUri xsi:nil="true"/>
+            <wsad:DataTable Name="ttFacility" hasBeforeTable="false">
+              <wsad:MetaData>
+                <wsad:FieldName>facility_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_type_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>owner_party_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_name</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>description</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>last_updated_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>created_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+            </wsad:DataTable>
+          </wsad:DataSetMetaData>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>ReadFacility</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+        <wsad:Name>ReadFacility</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="true">
+          <wsad:Name>filter</wsad:Name>
+          <wsad:OrigName>filter</wsad:OrigName>
+          <wsad:Type>1</wsad:Type>
+          <wsad:Mode>1</wsad:Mode>
+        </wsad:Parameter>
+        <wsad:Parameter allowUnknown="true" ordinal="2" writeXmlBeforeImage="true">
+          <wsad:Name>dsFacility</wsad:Name>
+          <wsad:OrigName>dsFacility</wsad:OrigName>
+          <wsad:Type>36</wsad:Type>
+          <wsad:Mode>2</wsad:Mode>
+          <wsad:DataSetMetaData>
+            <wsad:NamespaceUri xsi:nil="true"/>
+            <wsad:DataTable Name="ttFacility" hasBeforeTable="false">
+              <wsad:MetaData>
+                <wsad:FieldName>facility_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_type_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>owner_party_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_name</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>description</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>last_updated_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>created_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+            </wsad:DataTable>
+          </wsad:DataSetMetaData>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>SubmitFacility</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+        <wsad:Name>SubmitFacility</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="true">
+          <wsad:Name>dsFacility</wsad:Name>
+          <wsad:OrigName>dsFacility</wsad:OrigName>
+          <wsad:Type>36</wsad:Type>
+          <wsad:Mode>3</wsad:Mode>
+          <wsad:DataSetMetaData>
+            <wsad:NamespaceUri xsi:nil="true"/>
+            <wsad:DataTable Name="ttFacility" hasBeforeTable="false">
+              <wsad:MetaData>
+                <wsad:FieldName>facility_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_type_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>owner_party_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_name</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>description</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>last_updated_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>created_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+            </wsad:DataTable>
+          </wsad:DataSetMetaData>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>Test</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+        <wsad:Name>Test</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="true">
+          <wsad:Name>opcMessage</wsad:Name>
+          <wsad:OrigName>opcMessage</wsad:OrigName>
+          <wsad:Type>1</wsad:Type>
+          <wsad:Mode>2</wsad:Mode>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+    <wsad:InternalProc isExcluded="false" hasBadParams="false">
+      <wsad:Name>UpdateFacility</wsad:Name>
+      <wsad:ProcType>1</wsad:ProcType>
+      <wsad:MethodDetail isCustomized="false" usesUnknownDefault="true" useRetVal="false" usesTTMappingDefault="true" IsTTResultSet="true" usesBeforeImageDefault="true" IsMappedToSubmit="false">
+        <wsad:Name>UpdateFacility</wsad:Name>
+        <wsad:Parameter allowUnknown="true" ordinal="1" writeXmlBeforeImage="true">
+          <wsad:Name>dsFacility</wsad:Name>
+          <wsad:OrigName>dsFacility</wsad:OrigName>
+          <wsad:Type>36</wsad:Type>
+          <wsad:Mode>3</wsad:Mode>
+          <wsad:DataSetMetaData>
+            <wsad:NamespaceUri xsi:nil="true"/>
+            <wsad:DataTable Name="ttFacility" hasBeforeTable="false">
+              <wsad:MetaData>
+                <wsad:FieldName>facility_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_type_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>owner_party_id</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>facility_name</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>description</wsad:FieldName>
+                <wsad:Type>1</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>CHARACTER</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>last_updated_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+              <wsad:MetaData>
+                <wsad:FieldName>created_stamp</wsad:FieldName>
+                <wsad:Type>40</wsad:Type>
+                <wsad:Extent>0</wsad:Extent>
+                <wsad:TypeName>DATETIME-TZ</wsad:TypeName>
+                <wsad:XmlNodeType>0</wsad:XmlNodeType>
+              </wsad:MetaData>
+            </wsad:DataTable>
+          </wsad:DataSetMetaData>
+        </wsad:Parameter>
+      </wsad:MethodDetail>
+    </wsad:InternalProc>
+  </wsad:ProcDetail>
+</wsad:Operation>
+  </pidl:binding>
+</pidl:description>

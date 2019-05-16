@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prgs:model xmlns:prgs="http://www.progress.com/caf/camel/component/prgrs" id="resourceModel">
+  <prgs:resource consumes="application/json" name="_get" path="/read" produces="application/json">
+    <prgs:operation consumes="application/json" idls="licenta_rest_2019/.services/src/facility/bl/BEFacility.pidl::com.progress.openedge.pdt.bpmbindings" name="facility.bl.BEFacility..ReadFacility" produces="application/json" verb="GET">
+      <prgs:param name="filter" type="HEADER"/>
+    </prgs:operation>
+  </prgs:resource>
+  <prgs:resource consumes="application/json" name="_test" path="/test" produces="application/json">
+    <prgs:operation consumes="application/json" idls="licenta_rest_2019/.services/src/facility/si/SIFacility.pidl::com.progress.openedge.pdt.bpmbindings" name="facility.si.SIFacility..Test" produces="application/json" verb="GET"/>
+  </prgs:resource>
+</prgs:model>
